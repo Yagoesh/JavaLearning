@@ -16,7 +16,7 @@ public class Formulario4 extends JFrame implements ActionListener{
     textField1.setBounds(120,17,150,20);
     add(textField1);
 
-    boton1 = new JButton("Enviar");
+    boton1 = new JButton("Aceptar");
     boton1.setBounds(10,80,100,30);
     add(boton1);
     boton1.addActionListener(this);
