@@ -17,7 +17,7 @@ public class Formulario7 extends JFrame implements ActionListener {
 
     // paso2.2: crear un label/boton/textfield dandole un nombre creado por mi
     label1 = new JLabel("Valor 1: ");
-    // paso3: situarlo en un lugar y darle su ancho  alto
+    // paso2.3: situarlo en un lugar y darle su ancho  alto
     label1.setBounds(50,5,100,30);
     // paso2.4: añadirlo para que aparezca
     add(label1);
@@ -60,15 +60,16 @@ public class Formulario7 extends JFrame implements ActionListener {
       label3.setText("Resultado :" + result);
     }
   }
-// paso4: diseñar la clase
+// paso4: diseñar / crear el metodo main
   public static void main(String[] args) {
-    // paso4.1: Siempre usamos el nombre del archivo
+    // paso4.1: Siempre usamos el nombre del archivo 
     Formulario7 formulario = new Formulario7();
     // paso4.2: situar y dar medidas
     formulario.setBounds(0,0,500,500);  
     // paso4.3: copia y pega los siguientes 3
     formulario.setVisible(true);
     formulario.setResizable(false);
+    // para que salga en el centor de la pantalla
     formulario.setLocationRelativeTo(null);
   }
 }
