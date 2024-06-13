@@ -10,11 +10,15 @@ public class Licencia extends JFrame implements ActionListener, ChangeListener {
   private JTextArea textArea;
   private JCheckBox checkbox;
   private JButton continuar , noContinuar;
+  public String nombre = "";
 
   public Licencia() {
     setLayout(null);
+    setDefaultCloseOperation(EXIT_ON_CLOSE);
     setTitle("Licencia de uso");
     setIconImage(new ImageIcon(getClass().getResource("images/icon.png")).getImage());
+    Bienvenida ventana = new Bienvenida();
+    nombre = ventana.nombreUsuario;
 
     encabezado = new JLabel("TERMINOS Y CONDICIONES");
     encabezado.setBounds(215,5,200,30);
@@ -61,13 +65,28 @@ public class Licencia extends JFrame implements ActionListener, ChangeListener {
   public void stateChanged(ChangeEvent evento) {
     if(checkbox.isSelected()) {
       continuar.setEnabled(true);
+      noContinuar.setEnabled(false);
+    } else {
+      continuar.setEnabled(false);
+      noContinuar.setEnabled(true);
     }
   }
   public void actionPerformed(ActionEvent evento) {
     if (evento.getSource() == continuar){
-
+      Principal funcion = new Principal();
+      funcion.setBounds(0,0,650,600);  
+      funcion.setVisible(true);
+      funcion.setResizable(true);
+      funcion.setLocationRelativeTo(null);
+      this.setVisible(false);
     }
     if (evento.getSource() == noContinuar) {
+      Bienvenida funcion = new Bienvenida();
+      funcion.setBounds(0,0,500,500);  
+      funcion.setVisible(true);
+      funcion.setResizable(true);
+      funcion.setLocationRelativeTo(null);
+      this.setVisible(false);
 
     }
   }

@@ -7,20 +7,22 @@ public class Bienvenida extends JFrame implements ActionListener {
   private JTextField textField;
   private JLabel encabezado , subtitulo , label , footer;
   private JButton boton;
+  public static String nombreUsuario; 
 
   public Bienvenida() {
     setLayout(null);
+    setDefaultCloseOperation(EXIT_ON_CLOSE);
     setTitle("Bienvenida");
     getContentPane().setBackground(new Color(250,0,0));
     setIconImage(new ImageIcon(getClass().getResource("images/icon.png")).getImage());
 
-    ImageIcon imagen = new ImageIcon("images/logo-coca.png");
+    ImageIcon imagen = new ImageIcon("Proyecto/images/logo-coca.png");
     encabezado = new JLabel(imagen);
-    encabezado.setBounds(25,25,400,400);
+    encabezado.setBounds(20,10,300,100);
     add(encabezado);
 
     subtitulo = new JLabel("Sistema de control vacacional ");
-    subtitulo.setBounds(20,125,300,30);
+    subtitulo.setBounds(20,125,320,30);
     subtitulo.setFont(new Font("Andale Mono", 3, 18));
     subtitulo.setForeground(new Color(255,255,255));
     add(subtitulo);
@@ -55,7 +57,17 @@ public class Bienvenida extends JFrame implements ActionListener {
   
   public void actionPerformed (ActionEvent evento) {
     if (evento.getSource() == boton) {
-
+      nombreUsuario = textField.getText().trim();
+      if(nombreUsuario.equals("")){
+        JOptionPane.showMessageDialog(null, "Debes ingresar t nombre.");
+      } else {
+        Licencia funcion = new Licencia();
+        funcion.setBounds(0,0,500,500);  
+        funcion.setVisible(true);
+        funcion.setResizable(true);
+        funcion.setLocationRelativeTo(null);
+        this.setVisible(false);
+      }
     }
   }
 
